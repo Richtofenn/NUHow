@@ -3,13 +3,13 @@
   position: fixed;
   height: 45px;
   width: 42px;
-  background: rgb(141, 11, 11);
+  background: rgb(14, 28, 54);
   right: 30px;
   bottom: 10px;
   vertical-align: middle;
   text-align: center;
-  line-height: 60px;
-  color: #ffffff;
+  line-height:50px;
+  color: rgb(255, 248, 232);
   z-index: 9999;
   font-size: 30px;
   border-radius: 6px;
