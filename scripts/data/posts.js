@@ -6,7 +6,8 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [{
   theme: 'rgb(99, 211, 130)',
   topic: 'images/technology.png',
   time: 'June 1, 2024',
-  profilePicture: null // Default value
+  profilePicture: null,
+  comments: [1, 2]
 }];
 
 export function saveToStorage() {
@@ -22,9 +23,26 @@ export function addPost(postId, author, title, message, theme, topic, time, prof
     theme,
     topic,
     time,
-    profilePicture // Include the profile picture
+    profilePicture,
+    comments: [1, 2,3] 
   });
   saveToStorage();
 }
 
-
+export function getPostById(id){
+  let matchingPost;
+  posts.forEach((post) => {
+    if (post.postId === id) {
+      matchingPost = post;
+    }
+  });
+  return matchingPost;
+}
+export function addCommentToPost(postId, commentId){
+  posts.forEach((post)=>{
+    if(post.postId === postId){
+      post.comments.push(commentId);
+    }
+  })
+  saveToStorage();
+};

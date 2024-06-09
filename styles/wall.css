@@ -1,29 +1,15 @@
-header{
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  background-color: rgb(255, 248, 232);
-  padding: 10px 50px;
-  height: 60px;
-  align-items: center;
-  box-shadow: 1px -14px 12px 10px rgb(180, 180, 180);
-}
 
-/*Scroll Up Button Style*/
 .scroll-up-btn {
   position: fixed;
   height: 45px;
   width: 42px;
-  background: rgb(7, 0, 100);
+  background: rgb(141, 11, 11);
   right: 30px;
-  bottom: 20px;
+  bottom: 10px;
   vertical-align: middle;
   text-align: center;
-  line-height: 50px;
-  color: #d3be00;
+  line-height: 60px;
+  color: #ffffff;
   z-index: 9999;
   font-size: 30px;
   border-radius: 6px;
@@ -38,40 +24,7 @@ header{
   opacity: 1;
   pointer-events: auto;
 }
-/*---END OF THE Scroll Up Style------*/
 
-.left-section{
-  color:rgb(252, 213, 129);
-  font-weight: 500;
-  font-size: 30px;
-}
-.left-section span{
-  color:rgb(14, 28, 54);
-  font-weight: 600;
-
-}
-.right-section{
-  display: flex;
-  column-gap: 1px;
-  font-size: 17px;
-  font-weight: 400;
-}
-.right-section div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 19px;
-  cursor: pointer;
-}
-.right-section div:nth-child(5){
-  margin-left: 10px;
-  background-color: rgb(14, 28, 54);
-  color: rgba(255, 255, 255, 0.892);
-  border-radius: 7px;
-  font-size: 15px;
-  font-weight: 300;
-  padding: 9px 25px;
-}
 .navbar.sticky{
   padding:30px 0;
   background: black;
