@@ -2,17 +2,16 @@ $(document).ready(function(){
     $(window).scroll(function(){
         if(this.scrollY > 20){
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        if(this.scroll > 500){
+        if(this.scrollY > 500){ // Use this.scrollY instead of this.scroll
             $('.scroll-up-btn').addClass("show");
-        } else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
-});
-
-$('.scroll-up-btn').click(function(){
-    $('html').animate({scrollTop: 0});
+    $('.scroll-up-btn').click(function(){
+        $('html,body').animate({scrollTop: 0});
+    });
 });
