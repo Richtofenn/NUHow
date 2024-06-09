@@ -20,3 +20,4 @@ document.querySelector('.exit-button').addEventListener('click',()=>{
   document.querySelector('.author-container div').style.color = "initial";
   document.querySelector('.title-container div').style.color = "initial";
 });
+

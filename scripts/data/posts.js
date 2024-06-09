@@ -26,3 +26,5 @@ export function addPost(postId, author, title, message, theme, topic, time, prof
   });
   saveToStorage();
 }
+
+
