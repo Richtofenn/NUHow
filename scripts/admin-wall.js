@@ -85,8 +85,29 @@ function renderAdminWall() {
       document.querySelector('.reject-container .cancel').addEventListener('click',()=>{
         rejectContainer.style = "display: none";
       });
+    });
+  });
 
-    
-    })
-  })
+  document.querySelectorAll('.feature').forEach((featureButton)=>{
+    featureButton.addEventListener('click',()=>{
+
+      const featureContainer= document.querySelector('.feature-container');
+      featureContainer.style = "display: flex";
+
+      document.querySelector('.feature-container .confirm').addEventListener('click',()=>{
+        const {postId} = featureButton.dataset;
+        const submission = getSubmissionByPostId(postId);
+        addPost(submission.postId, submission.author, submission.title, submission.message, submission.theme || 'rgb(99, 211, 130)', submission.topic || 'images/technology.png', submission.time, submission.profilePicture);
+        removeSubmissionByPostId(submission.postId);
+        renderAdminWall();
+        featureContainer.style="display:none";
+      });
+      
+      document.querySelector('.feature-container .cancel').addEventListener('click',()=>{
+        featureContainer.style="display:none";
+      });
+    });
+  });
+
+
 }

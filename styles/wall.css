@@ -25,6 +25,26 @@
   pointer-events: auto;
 }
 
+.left-section a {
+  color: rgb(223, 208, 0);
+  text-decoration: none;
+}
+
+div a:hover {
+  color: rgb(223, 208, 0);
+}
+
+.right-section a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.right-section div a.active {
+  color: rgb(223, 208, 0);
+}
+
+
+
 .navbar.sticky{
   padding:30px 0;
   background: black;
