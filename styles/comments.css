@@ -106,9 +106,10 @@
   align-items: center;
   font-size: .85em;
   column-gap: 10px;
-  padding: 29px 0px;
+  padding: 29px 14px;
   align-items: center;
   position: relative;
+  justify-content: center;
 }
 .name-comment-container{
   display: flex;
@@ -164,6 +165,7 @@
 .message-input-container{
   display: flex;
   flex: 1;
+  justify-content: center;
 }
 
 .message-input{
@@ -236,6 +238,8 @@
   .theme-container {
     margin-top: 15px;
     margin-bottom: 7px;
+    justify-content: center;
+
   }
   .info-input-container {
     flex-direction: column;

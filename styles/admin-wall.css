@@ -1,304 +1,116 @@
-/* BODY: Should apply for the whole page.*/
-body {
-    background-image: linear-gradient(#FEF7E7, #FDEDDD);
-    font-family: "Roboto";font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+body{
+    padding: 20px 0;
 }
-
-/* TOP SECTION: Left-side panel and main content panel on right side.*/
-.top {
-    display: flex;
-    flex: 100%;
-    flex-direction: row;
-    align-items: stretch;
+aside{
+  position: fixed;   
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 0;
+  background: linear-gradient(180deg, rgba(255, 233, 217, 0.25) 8%, rgba(254, 212, 181, 0.25) 62%, rgba(189, 178, 255, 0.125) 95%);
+  border: 4px solid;
+  border-image-source: linear-gradient(180deg, #FFE9D9 8%, rgba(254, 212, 181, 0.75) 46.5%, rgba(189, 178, 255, 0.5) 95%);
+  box-shadow: 4px 7px 10px 1px rgba(174, 173, 173, 0.25);
 
 }
-
-/* LEFT-SIDE HEADER: Displays account as well as navigation links on the left panel.*/
-.left-panel {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    /* margin: top right bottom left*/
-    margin: -10px 0 20px -10px;
-
-    background-color: #FFFCFA;
-    color: #B0B0AF;
-    box-shadow: 3px 0 5px -2px #a8a8a8;
-}
-
-.left-panel span {
-    color: #F3CA75;
-}
-
-.left-panel h1 {
-    color: #0A1C38;
-    margin-top: 20px;
-    font-size: 2em;
-    /* font-weight: 700;
-    border-radius: 25px; */
-}
-
-/* Scroll up btn feature */
-.scroll-up-btn {
-    position: fixed;
-    height: 45px;
-    width: 42px;
-    background: rgb(14, 28, 54);
-    right: 30px;
-    bottom: 10px;
-    vertical-align: middle;
-    text-align: center;
-    line-height:50px;
-    color: rgb(255, 248, 232);
-    z-index: 9999;
+aside .logo-container{
+    color:rgb(252, 213, 129);
+    font-weight: 500;
     font-size: 30px;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 1;
-    pointer-events: auto;
-    transition: all 0.3s ease;
-  }
-  
-  .scroll-up-btn.show{
-    bottom: 20px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-/*---END OF THEH FEATURE---*/
-#profile-picture {
+    margin-bottom: 10px;
+}
+aside .logo-container span{
+    color:rgb(14, 28, 54);
+    font-weight: 600;
+}
+aside img{
+    width: 80px;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
-
-#username {
-    color: #0A1C38;
-}
-
-#logoutBtn {
-    font-family: inherit;
-    border: none;
-    background-color: #FFFCFA;
-    color: #B0B0AF;
-}
-
-#logoutBtn:hover {
-    background-color: #0A1C38;
-}
-
-
-#line-break1 {
-    width: 70%;
-    margin: -10px 0 15px 0;
-}
-
-.left-panel hr {
-    width: 70%;
-    margin: 10px 0 15px 0;
-}
-
-.left-panel button {
-    font-family: "Roboto";font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-/* MAIN CONTENT: Where you can see the posts submitted to the site.*/
-.top .main-content {
-    flex: 5.5;
-}
-
-.main-content {
-    background-image: linear-gradient(#FEF7E7, #FDEDDD);
-    color: #0A1C38;
-
-    /* margin: top right bottom left*/
-    margin: -10px -10px 0 0;
-
-    /* Should re-check this section of code for future updates*/
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-
-    overflow-y: scroll;
-}
-
-.mini-header {
-    margin-top: -13px;
-    align-items: center;
-    text-align: center;
-    background-size: 100% 100%;
-    color: #F3CA75;
-}
-
-.mini-header img {
-    object-fit: cover;
-}
-
-
-
-.info-text {
-    text-align: center;
-}
-
-.info-text h1 {
-    margin-top: 15px;
-}
-
-input{
-    width: 35vw;
-    height: 0vw;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 10px;
-    border: solid 1.8px rgb(228, 227, 227);
-    letter-spacing: .4px;
-    outline: none; 
-}
-input:focus {
-    border: solid 2px rgb(14, 28, 54);
-}
-
-/* POSTS LIST SECTION */
-.posts-list-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    column-gap: 25px;
-    row-gap: 25px;
-    vertical-align: top;
-    margin-top: 60px;
-}
-.post-container{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(249, 246, 246);
-    width: 300px;
-    height: 340px;
-    padding: 10px 15px;
-    border-radius: 12px;
-    box-shadow: 0px 7px 10px 1px rgba(174, 173, 173, 0.25);
-    letter-spacing: .4px;
-}
-
-.post-container:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 10px #6877ff;
-}
-.profile-container{
-    display: flex;
-    padding-right: 3px;
-}
-.profile-image-container, .topic-image-container{
-    display: flex;
-    flex:1;
-    justify-content: center;
-    align-items: center;
-}
-
-.topic-image-container img {
-    width: 100%;
-}
-
-.profile-image-container img{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.details-container{
-    flex:6;
-    padding-left: 5px;
+aside .admin-name{
+    font-size: 1.120em;
+    font-weight: 600;
     color: rgb(14, 28, 54);
-
+    margin-bottom: 4px;
 }
-.details-container .title{
-    margin-bottom: 5px;
+aside .admin-role{
+    font-size: .9em;
+    color: rgb(14, 28, 54);
+    font-weight: 400;
 }
-.status{
+.admin-profile-container{
+    display: flex;
+    flex-direction: column;
+}
+aside,
+.pages-container,
+.logout{
     color: rgb(130, 130, 130);
-    font-size: .8em;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: .9em;
+    font-weight: 500;
 }
-.message-container{
+.pages-container{
     display: flex;
-    align-items:end;
-    justify-content: right;
-    flex:1;
-    white-space: normal;
-    background-color: white;
-    border: solid 1.5px rgb(237, 234, 234);
-    padding: 15px 15px;
+    flex-direction: column;
+    margin-top: 35px;
+    gap: 5px;
 }
-.message-container p {
-    background-color: rgb(99, 177, 211);
-    padding: 8px 10px;
-    border-radius: 13px;
-    color: white;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    max-width: 90%; 
+.logout{
+    margin-top: 90px;
 }
 
-.wrapper{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    background-color: rgb(42, 42, 42);
-    opacity: .30;
-    z-index: 20;
+main{
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
-  }
-
-#topBtn {
-    /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 80px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #3E4656; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
+    margin-left: 210px;
+    padding: 20px 50px;
 }
-  
-#topBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
+.posts-list-container{
+    width: 100%;
 }
 
-/* FOOTER: The unofficial bottom, displays NU Diaries as well as copyrights reserved to information.*/
-footer {
+.submitted-questions-container{
     display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
     align-items: center;
-    background-color: #0a1c38;
-    color: #FFF8E6;
-    height: 20px;
-    margin: -20px; /*   */
+    text-align: center;
+    row-gap: 15px;
+}
+.submitted-questions-container .messages-found{
+    font-size: .85em;
+    font-style: italic;
+}
+.submitted-questions-container input{
+    border: none;
+    padding: 14px 20px;
+    width: 100%;
+    border-radius: 14px;
+}
+.submissions{
+    color:rgb(14, 28, 54);
+    margin-bottom: 40px;
 }
 
-footer span {
-    color: #FFD472;
-}
-
-#copyrights {
-    font-size: 11px;
+.background-image {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    object-fit: cover;
+    object-position: right;
+    z-index: -100;
+    opacity: .05;
+    
 }
