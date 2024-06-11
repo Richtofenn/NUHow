@@ -10,8 +10,24 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [{
   comments: [1, 2]
 }];
 
+export let featured_posts = JSON.parse(localStorage.getItem('featured_posts')) || [{
+  postId: '2',
+  author: 'Neo',
+  title: 'Featured Title',
+  message: 'anofwaefawefawefsawnfoaefkanwefknaskdnflkanweklfnklasdnflkanwklefnklandsklfnaklwdnfklanwdklfnawklndfkawawefkwemfkanwekfnkawfwafewaawfeawakefnkajwnefawknefknawekfnkawenfkawnfwakefmkwafnkwaefnkawnefkaweekewnwaelfawlmefwlmeflawmflemwflaemflawwaefawefawfeawes',
+  theme: 'rgb(99, 211, 130)',
+  topic: 'images/technology.png',
+  time: 'June 1, 2024',
+  profilePicture: null,
+  comments: [1, 2]
+}];
+
 export function saveToStorage() {
   localStorage.setItem('posts', JSON.stringify(posts));
+}
+
+export function saveToFeatured() {
+  localStorage.setItem('featured_posts', JSON.stringify(featured_posts));
 }
 
 export function addPost(postId, author, title, message, theme, topic, time, profilePicture) {
@@ -27,6 +43,21 @@ export function addPost(postId, author, title, message, theme, topic, time, prof
     comments: [1, 2,3] 
   });
   saveToStorage();
+}
+
+export function featurePost(postId, author, title, message, theme, topic, time, profilePicture) {
+  featured_posts.push({
+    postId,
+    author,
+    title,
+    message,
+    theme,
+    topic,
+    time,
+    profilePicture,
+    comments: [1, 2,3] 
+  });
+  saveToFeatured();
 }
 
 export function getPostById(id){
