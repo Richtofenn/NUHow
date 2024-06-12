@@ -21,7 +21,8 @@
       <div><a id="featuredpage-link"href="featuredpage.html">Featured</a></div>
       <div><a id="aboutpage-link"href="aboutpage.html">About</a></div>
       <div><a id="contactpage-link"href="contactpage.html">Contact</a></div>
-      <div class="js-write-button">Write a Post</div>
+      <div class="write-post">Write a Post</div> <!-- Write a post transferred to middle part of the page instead of the header -->
+      <!-- Probably replace the above class to correspond for an admin login.-->
     </nav>
   </header>
 
@@ -30,13 +31,15 @@
     <h3>A Guide for NU Students, by NU Students.</h3>
     <div class="buttons-container">
       <div class="learn-more">Learn More</div>
-      <div class="write-post">Write a Post</div>
+      <div class="js-write-button">Write a Post</div> <!-- Write a post function goes here instead-->
     </div>
   </div>
   
   <div class="messages-found-container js-messages-found">
     <div class="messages-found">1234 Messages Found</div>
-    <input placeholder="Search for an Author">
+    <div class="search-container">
+      <input class="search-bar" placeholder="Search for an Author">
+    </div>
   </div>
 
   <div class="posts-list-container js-posts-list-container">
