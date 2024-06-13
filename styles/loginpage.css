@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body {
-    background: url(/images/login_img.jpg) no-repeat;
+    background: url(/NUHow/images/login_img.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     width: 1000px;
