@@ -4,6 +4,8 @@
   <link href="styles/general.css" rel="stylesheet">
   <link href="styles/wall.css" rel="stylesheet">
   <link href="styles/post-list.css" rel="stylesheet">
+  <link href="styles/aboutpage.css" rel="stylesheet">
+  <link href="styles/homepage.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,28 +15,48 @@
   <title>NUHow | Wall</title>
 </head>
 <body>
-
-  <header>
-    <div class="left-section"><a href="wall.html"><span>NU</span>How</a></div>
-    <nav class="right-section">
-      <div><a id="inboxpage-link"href="inboxpage.html">Inbox</a></div>
-      <div><a id="featuredpage-link"href="featuredpage.html">Featured</a></div>
-      <div><a id="aboutpage-link"href="aboutpage.html">About</a></div>
-      <div><a id="contactpage-link"href="contactpage.html">Contact</a></div>
-      <div class="write-post">Write a Post</div> <!-- Write a post transferred to middle part of the page instead of the header -->
-      <!-- Probably replace the above class to correspond for an admin login.-->
+  <header class='header'>
+    <div class='header_name'>
+      <div class = 'header_title'><a href="wall.html"><span class = 'color1'>NU</span><span class = 'color2'>How</span></a></div>
+    </div>
+    <nav class="nav">
+      <div class="nav_container">
+        <a href="wall.html">Home</a></div>
+        <a id="featuredpage-link"href="featuredpage.html">Featured</a></div>
+        <a id="aboutpage-link"href="aboutpage.html">About</a></div>
+        <a id="contactpage-link"href="contactpage.html">Contact</a></div>
+      </div>  
+      <div class = 'nav_button'>
+        <a href="loginpage.html">
+            <button class = 'nav_writeButton'>
+                <i class="fa fa-user"></i>
+                &nbsp;Admin Login
+            </button>
+        </a>
+    </div>
     </nav>
   </header>
 
-  <div class="dear-diary-container">
-    <h1 class="text-1"><span class="typing"></span></h1>
-    <h3>A Guide for NU Students, by NU Students.</h3>
-    <div class="buttons-container">
-      <div class="learn-more">Learn More</div>
-      <div class="js-write-button">Write a Post</div> <!-- Write a post function goes here instead-->
-    </div>
-  </div>
-  
+  <main class = 'main'>
+        <div class = 'banner'>
+            <img src="images/img1.jpg">
+            <div class = 'banner_text'>
+                <h1 class="text-1"><span class="typing"></span></h1>
+                <h3>A Guide For Nationalians, by Nationalians.</h3>
+                <div class="buttons-container">
+                  <button class="learn-more">
+                    <i class = "fa fa-book"></i>
+                    &nbsp;Learn More</button>
+                  <button class="js-write-button">
+                    <i class = "fa fa-pencil"></i>
+                    &nbsp;Post a Question</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+
   <div class="messages-found-container js-messages-found">
     <div class="messages-found">1234 Messages Found</div>
     <div class="search-container">
@@ -99,6 +121,38 @@
     <i class="fa-solid fa-angle-up"></i>
   </div>
   <!--ENDS HERE Scroll Up BTN-->
+
+  <footer class = 'footer'>
+    <div class = 'footer_credits'>
+        <div class = 'footer_names'>
+            <h2>Developers</h2>
+            <p>Tristan Cura</p>
+            <p>Tyrel Cruz</p>
+            <p>Neo David</p>
+            <p>Russel Rapi</p>
+        </div>
+        <div class = 'footer_email'>
+            <h2>Email</h2>
+            <p>curatp@students.national-u.edu.ph</p>
+            <p>cruztp@students.national-u.edu.ph</p>
+            <p>davidnm@students.national-u.edu.ph</p>
+            <p>rapirg@students.national-u.edu.ph</p>
+        </div>
+        <div class = 'footer_git'>
+            <h2>Github</h2>
+            <a href="https://github.com/TristanCura" target="_blank">TristanCura</a>
+            <a href="https://github.com/tyrelcruz" target="_blank">tyrelcruz</a>
+            <a href="https://github.com/Richtofenn" target="_blank">Richtofenn</a>
+            <a href="https://github.com/syllablelous" target="_blank">syllableous</a>
+        </div>
+    </div>
+    <div class = 'footer_NUHow'>
+        <div class = 'footer_title'><span class = 'color3'>NU</span><span class = 'color2'>How</span></div>
+        <p>&emsp;NUHow is a website where National University Philippines students can ask questions, inquiries, guides and tutorials on any topic to which any students can answer and reply to.
+            This project was created for the subject Web Systems and Technologies by 4 students from CCIT's INF224.
+        </p>
+    </div>
+</footer>
 
   <!--Typed.umd and Jquery are CDNJS jscript / External Javascript-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

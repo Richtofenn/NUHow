@@ -1,3 +1,16 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  background-color: rgb(255, 248, 232);
+  padding: 10px 50px;
+  height: 60px;
+  align-items: center;
+  box-shadow: 1px -14px 12px 10px rgb(180, 180, 180);
+}
 
 .scroll-up-btn {
   position: fixed;
@@ -25,6 +38,18 @@
   pointer-events: auto;
 }
 
+.left-section{
+  color:rgb(252, 213, 129);
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.left-section span{
+  color:rgb(14, 28, 54);
+  font-weight: 600;
+
+}
+
 .left-section a {
   color: rgb(223, 208, 0);
   text-decoration: none;
@@ -34,6 +59,31 @@ div a:hover {
   color: rgb(223, 208, 0);
 }
 
+.right-section{
+  display: flex;
+  column-gap: 1px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.right-section div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 19px;
+  cursor: pointer;
+}
+
+.right-section div:nth-child(5){
+  margin-left: 10px;
+  background-color: rgb(14, 28, 54);
+  color: rgba(255, 255, 255, 0.892);
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 9px 25px;
+}
+/*MAYBEDELETE*/
 .right-section a {
   color: #000000;
   text-decoration: none;
@@ -182,11 +232,28 @@ div a:hover {
   padding: 10px 10px;
   outline:none;
 }
+input
+  .search-container {
+    width: 35vw;
+    background-color: #FFFFFF;
+    padding: 16px 20px;
+    color: #757575;
+    border: none;
+    border-radius: 10px;
+    border-radius: 10px;
+    border: solid 1.8px rgb(228, 227, 227);
+    letter-spacing: .4px;
+    outline: none;
+  }
+  input:focus {
+    border: solid 2px rgb(14, 28, 54);
+  }
+
 input::placeholder{
   color:black;
 }
 input:focus {
-  border: none; 
+  border: solid 2px rgb(14, 28, 54); 
   outline: none; 
 }
 .author-container{
