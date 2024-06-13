@@ -102,6 +102,9 @@
     color: #757575;
     border-radius: 10px;
   }
+  body {
+    height: auto;
+    }
   
   .search-bar {
     background-image: url('../images/search-icon.png');
