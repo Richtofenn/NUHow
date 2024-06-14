@@ -3,9 +3,8 @@
 <head>
   <link href="styles/general.css" rel="stylesheet">
   <link href="styles/wall.css" rel="stylesheet">
-  <link href="styles/homepage.css" rel="stylesheet">
   <link href="styles/post-list.css" rel="stylesheet">
-  <link href="styles/featuredpage.css" rel="stylesheet">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,22 +37,25 @@
   </nav>
 </header>
 
-  <main class = 'main'>
-    <div class = 'banner'>
-        <img src="images/img1.jpg">
-        <div class = 'banner_text'>
-            <h1 class="text-1"><span class="typing"></span></h1>
-            <h3>A Guide For Nationalians, by Nationalians.</h3>
-            <div class="buttons-container">
-              <button class="learn-more">
-                <i class = "fa fa-book"></i>
-                &nbsp;Learn More</button>
-              <button class="write-post">
-                <i class = "fa fa-pencil"></i>
-                &nbsp;Post a Question</button>
+  <main>
+        <div class = 'banner'>
+            <div class = 'banner_text'>
+                <img src="images/img1.jpg">
+                <h1 class="text-1"><span class="typing"></span></h1>
+                <h3>A Guide For Nationalians, by Nationalians.</h3>
+                <div class="buttons-container">
+                  <button class="learn-more">
+                    <i class = "fa fa-book"></i>
+                    &nbsp;Learn More</button>
+                  <button class="js-write-button">
+                    <i class = "fa fa-pencil"></i>
+                    &nbsp;Post a Question</button>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    
 
   <div class="messages-found-container js-messages-found">
     <div class="messages-found">1234 Messages Found</div>
@@ -62,11 +64,9 @@
     </div>
   </div>
 
-
-
   <div class="posts-list-container js-posts-list-container">
   </div>
-</main>
+
   <div class="wrapper">
   </div> 
   <div class="write-message-container">
@@ -121,18 +121,17 @@
     <i class="fa-solid fa-angle-up"></i>
   </div>
   <!--ENDS HERE Scroll Up BTN-->
-</body>
 
-  <footer class = 'footer'>
-    <div class = 'footer_credits'>
-        <div class = 'footer_names'>
+<footer>
+    <div class = 'credits-container'>
+        <div class = 'names'>
             <h2>Developers</h2>
             <p>Tristan Cura</p>
             <p>Tyrel Cruz</p>
             <p>Neo David</p>
             <p>Russel Rapi</p>
         </div>
-        <div class = 'footer_email'>
+        <div class = 'email'>
             <h2>Email</h2>
             <p>curatp@students.national-u.edu.ph</p>
             <p>cruztp@students.national-u.edu.ph</p>
@@ -147,24 +146,27 @@
             <a href="https://github.com/syllablelous" target="_blank">syllableous</a>
         </div>
     </div>
-    <div class = 'footer_NUHow'>
-        <div class = 'footer_title'><span class = 'color3'>NU</span><span class = 'color2'>How</span></div>
-        <p>&emsp;NUHow is a website where National University Philippines students can ask questions, inquiries, guides and tutorials on any topic to which any students can answer and reply to.
-            This project was created for the subject Web Systems and Technologies by 4 students from CCIT's INF224.
-        </p>
-    </div>
+    <div class = 'description-container'>
+      <div class = 'title'><span class = 'color3'>NU</span><span class = 'color2'>How</span></div>
+      <p>&emsp;NUHow is a website where National University Philippines students can ask questions, inquiries, guides and tutorials on any topic to which any students can answer and reply to.
+          This project was created for the subject Web Systems and Technologies by 4 students from CCIT's INF224.
+      </p>
+  </div>
+   
 </footer>
 
   <!--Typed.umd and Jquery are CDNJS jscript / External Javascript-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="styles/frontend/highlightbutton.js" type="module"></script>
-  <script src="scripts/featured.js" type="module"></script>
-  <script src="scripts/data/posts.js" type="module"></script>
+  <script src="scripts/wall.js" type="module"></script>
   <script src="styles/frontend/textchange.js" type="module"></script>
   <script src="styles/frontend/buttonup.js"></script>
   <script src="styles/frontend/floating.js"></script>
 
-  
 
+  <script src="scripts/featured.js" type="module"></script>
+
+  
+</body>
 </html>

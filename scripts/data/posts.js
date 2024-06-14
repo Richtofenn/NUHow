@@ -45,21 +45,6 @@ export function addPost(postId, author, title, message, theme, topic, time, prof
   saveToStorage();
 }
 
-export function featurePost(postId, author, title, message, theme, topic, time, profilePicture) {
-  featured_posts.push({
-    postId,
-    author,
-    title,
-    message,
-    theme,
-    topic,
-    time,
-    profilePicture,
-    comments: [1, 2,3] 
-  });
-  saveToFeatured();
-}
-
 export function getPostById(id){
   let matchingPost;
   posts.forEach((post) => {

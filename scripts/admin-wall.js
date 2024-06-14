@@ -1,6 +1,7 @@
 import { formatTime } from "./utils/formatTime.js";
 import { submissions,getSubmissionByPostId,removeSubmissionByPostId} from "./data/submissions.js";
-import { addPost, featurePost } from "./data/posts.js";
+import { addPost} from "./data/posts.js";
+import { featurePost } from "./data/featured.js";
 
 renderAdminWall();
 
