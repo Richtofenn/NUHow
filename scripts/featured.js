@@ -1,7 +1,7 @@
 import { featured } from "./data/featured.js";
 import { formatTime } from "./utils/formatTime.js";
 
-console.log(featured)
+document.querySelector('.js-messages-found .messages-found').innerHTML = `${featured.length} Messages Found`;
 let featuredHTML = '';
 featured.forEach((post)=>{
   featuredHTML += `
