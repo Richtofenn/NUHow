@@ -55,7 +55,7 @@ header {
   align-items: center;
   box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  z-index: 1;
+  z-index: 100000;
 }
 
 .header div {
@@ -131,11 +131,12 @@ header {
 }
 .banner{
   width: 100vw;
+  text-align: center;
 }
 
 .banner img {
   opacity: 0.5;
-  box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -10px 20px 10px rgba(221, 51, 51, 0.2);
   filter: blur(0.75px);
   z-index: -1;
   user-select: none;
