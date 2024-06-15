@@ -232,7 +232,7 @@ footer .description-container{
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
-  min-width: 500px;
+  min-width: 400px;
 }
 
 footer .description-container p{

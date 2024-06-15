@@ -88,84 +88,28 @@ header {
 
 .main {
     flex: 1;
-}
-
-.banner img {
-    position: relative;
-    left: 0px;
-    top: 66px;
-    opacity: 0.5;
-    box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2);
-    filter: blur(0.75px);
-    z-index: -1;
-    user-select: none;
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
-
-.banner_text {
-    position: absolute;
-    top: 7.5%;
-    left: 50%;
-    transform: translate(-50%);
-    margin-top: 50px;
+    width: 100vw;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: rgb(14, 28, 54);
-    margin-bottom: 23px;
 }
 
-.banner_text h1 {
-    font-size: 4vw;
-    font-weight: 600;
-    letter-spacing: .5px;
-    margin-bottom: 17px;
-    padding-right: 5px;
-    line-height: 1.2;
-}
-
-.banner_text h3 {
-    font-weight: 400;
-    font-size: 1.4em;
-    margin-bottom: 24px;
-}
-
-.buttons-container {
-    display: flex;
-    column-gap: 25px;
-}
-
-.buttons-container button {
-    padding: 12px 23px;
-    font-size: 0.8em;
-    border-radius: 10px;
-    letter-spacing: .4px;
-}
-
-.buttons-container button {
-    background-color: rgb(14, 28, 54);
-    color: #FFF8E8;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.buttons-container button:hover {
-    background-color: rgb(44, 59, 89);
-    transform: scale(1.1, 1.1);
-}
-
-hr {
-    position: relative;
-    left: 3%;
-    width: 250px;
-    color: #0E1C36;
-    margin-top: 20px;
+.container {
+    margin-top: 100px;
+    width: 70%;
+    height: 530px;
+    text-align: center;
     border: 1px solid #0E1C36;
+    border-radius: 12px;
+    padding: 10px 20px;
+    padding-left: 0px;
+    background: linear-gradient(160deg, #a2a7aa32, #80786f3c);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    color: #0E1C36;
 }
+
 
 .contact-container h3 {
     font-size: 20px;
@@ -188,24 +132,6 @@ hr {
     left: -40%;
 }
 
-.container {
-    position: absolute;
-    top: 54%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 550px;
-    height: 530px;
-    text-align: center;
-    border: 1px solid #0E1C36;
-    border-radius: 12px;
-    padding: 10px 20px;
-    padding-left: 0px;
-    background: linear-gradient(160deg, #a2a7aa32, #80786f3c);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
-    color: #0E1C36;
-}
 
 .container h2 {
     font-size: 35px;
@@ -229,11 +155,12 @@ input {
     background: transparent;
     margin: 15px;
     border: 2px solid #0E1C36;
-    width: 480px;
+    width: 90%;
     height: 2px;
-    padding: 20px 40px 20px 20px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    padding: 20px 0;
+    padding-left: 20px;    
     /* Safari */
 }
 
@@ -241,7 +168,7 @@ input {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 10px;
+    right: 5%;
     color: #0E1C36;
 }
 
@@ -264,7 +191,6 @@ input::placeholder {
 }
 
 .container .submit {
-    position: absolute;
     background: #0E1C36;
     color: #FFF8E8;
     border: none;
@@ -275,9 +201,9 @@ input::placeholder {
     border-radius: 45px;
     width: 200px;
     height: 30px;
-    left: 35%;
     bottom: 6%;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transform: translateX(6px);
 }
 
 .container .submit:hover {
@@ -292,11 +218,12 @@ textarea {
     background: transparent;
     margin: 15px;
     border: 2px solid #0E1C36;
-    width: 480px;
-    padding: 20px 40px 10px 20px;
+    width: 90%;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     resize: none;
+    padding: 20px 0;
+    padding-left: 20px;
 }
 
 textarea::placeholder {
@@ -317,8 +244,12 @@ textarea:not(:focus)::placeholder {
 
 .bgcolor2 {
     background-image: linear-gradient(to bottom, #faddc3, #8080c063);
-    height: 820px;
+    height: 100px;
     position: relative;
     bottom: -5.2%;
     z-index: -3;
+}
+
+@media only screen and (max-width:700px){
+   
 }
