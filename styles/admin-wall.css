@@ -64,6 +64,9 @@ aside,
     margin-top: 35px;
     gap: 5px;
 }
+.pages-container div{
+cursor: pointer;
+}
 .logout{
     margin-top: 90px;
 }
@@ -121,6 +124,10 @@ main{
 }
 .post-container{
     position: relative;
+
+}
+.post-container:hover{
+    transform: none;
 }
 .action-container{
     position: absolute;
