@@ -7,12 +7,23 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     console.log('Email:', email);
     console.log('Password:', password);
 
-    const predefinedEmail = 'kator@gmail.com';
-    const predefinedPassword = 'sex';
+    const predefinedAccount = [
+        { email: 'curatp@students.national-u.edu.ph', password: 'tristancura', name: 'Tristan Cura', position: 'UI/UX Developer'},
+        { email: 'cruztp@students.national-u.edu.ph', password: 'tyrelcruz', name: 'Tyrel Cruz', position: 'Front-End Developer'},
+        { email: 'davidnm@students.national-u.edu.ph', password: 'neodavid', name: 'Neo David', position: 'Front-End Developer'},
+        { email: 'rapirg@students.national-u.edu.ph', password: 'russelrapi', name: 'Russel Rapi', position: 'Front-End Developer'},
+        { email: 'admin@admin.admin', password: 'admin12345', name: 'Admin', position: 'Admin'}
+    ];
 
-    if (email === predefinedEmail && password === predefinedPassword) {
-        window.location.href = 'admin-wall.html';
+    const user = predefinedAccount.find(login => login.email === email);
+    
+    if (user) {
+        if (user.password === password) {
+            window.location.href = 'admin-wall.html';
+        } else {
+            alert('Invalid password. Please try again.');
+        }
     } else {
-        alert('Invalid email or password. Please try again.');
+        alert('Invalid email. Please try again.');
     }
 });

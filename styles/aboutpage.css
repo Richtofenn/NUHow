@@ -241,7 +241,7 @@ hr::before {
 }
 
 .bgcolor2 {
-    background-image: linear-gradient(to bottom, #faddc3, #8080c063);
+    background-image: linear-gradient(to bottom, #faddc3, #8080c0db);
     height: 700px;
     position: static;
     z-index: 100;
@@ -273,6 +273,7 @@ hr::before {
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 60px;
+    column-gap: 10px;
 }
 
 .card {
