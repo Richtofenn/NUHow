@@ -4,7 +4,7 @@
   height: 45px;
   width: 42px;
   background: rgb(14, 28, 54);
-  right: 30px;
+  right: 31px;
   bottom: 10px;
   vertical-align: middle;
   text-align: center;
@@ -20,7 +20,7 @@
 }
 
 .scroll-up-btn.show{
-  bottom: 30px;
+  bottom: 90px;
   opacity: 1;
   pointer-events: auto;
 }
