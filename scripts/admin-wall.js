@@ -68,7 +68,7 @@ function renderAdminWall() {
     let adminWallHTML=``;
     data.slice().reverse().forEach((post)=>{
       adminWallHTML+=`
-      <a href="comments.html?postId=${post.postId}">
+    
       <div class="post-container js-post-container" data-post-id=${post.postId}>
         <div class="profile-container">
           <div class="profile-image-container">
@@ -89,7 +89,7 @@ function renderAdminWall() {
           <p style="background-color:${post.theme}">${post.message}</p>  
         </div>
       </div>
-      </a>
+
     `
     })
     document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
