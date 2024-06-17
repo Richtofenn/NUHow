@@ -65,7 +65,42 @@
   <div class="messages-found-container js-messages-found">
     <div class="messages-found"></div>
     <div class="search-container">
-      <input class="search-bar" placeholder="Search for an Author">
+  
+      <!-- Dropdown container for the search container -->
+      <div class="dropdown">
+
+        <!-- Filter Dropdown (Topics)-->
+        <div id="filter-drop-text" class="dropdown-text">
+          <span id="filter-spantext">Filter Posts by...</span>
+          <i id="filter-icon" class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul id="filter-list" class="dropdown-list">
+          <li class="dropdown-list-item">All Posts</li>
+          <li class="dropdown-list-item">Technology</li>
+          <li class="dropdown-list-item">Literature</li>
+          <li class="dropdown-list-item">Art</li>
+          <li class="dropdown-list-item">Politics</li>
+        </ul>
+
+        <!-- Sort Dropdown (Author, Title, Message)-->
+        <div id="sort-drop-text" class="dropdown-text">
+          <span id="sort-spantext">Sort Posts by...</span>
+          <i id="sort-icon" class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul id="search-list" class="dropdown-list" >
+          <li class="dropdown-list-item">None</li>
+          <li class="dropdown-list-item">Author</li>
+          <li class="dropdown-list-item">Title</li>
+          <li class="dropdown-list-item">Message</li>
+        </ul>
+
+      </div>
+
+      <div class="search-box">
+        <input id="search-input" class="search-bar" placeholder="Search for an Author">
+        <i id="search-icon" class="fa fa-search"></i>
+      </div> 
+      
     </div>
   </div>
 

@@ -37,19 +37,93 @@
   margin-bottom: 17px;
 }
 .search-container {
+  display: flex;
+  align-items: center;
   background-color: #FFFFFF;
   color: #757575;
   border-radius: 10px;
+  position: relative;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--white);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  background: rgb(14, 28, 54);
+  color: rgb(255, 248, 232); 
+}
+
+.dropdown-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  padding: 0.5rem 0.5rem;
+  width: 50%;
+}
+
+.dropdown-list {
+  position: absolute; /* Ensure dropdowns are taken out of the document flow */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  background-color: rgb(14, 28, 54);
+  border: 1px solid #ccc;
+  padding: 0;
+  display: none; /* Hide by default */
+  z-index: 1000; /*Ensure it appears above other elements*/
+  top: 50px;
+}
+
+.dropdown-list.show {
+  display: block;
+}
+
+.dropdown-list > .dropdown-list-item {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+}
+
+.dropdown-list-item {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list-item:hover { 
+  background: rgb(255, 248, 232);
+  color: rgb(14, 28, 54);
+  /*make width of highlight match the list container*/
+  cursor: pointer;
 }
 
 .search-bar {
-  background-image: url('../images/search-icon.png');
-  background-repeat: no-repeat;
   background-size: 20px 20px;
   background-position: 8px center;
-  padding: 10px 10px 10px 35px;
-  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  border: 0;
+  outline: 0;
   font-size: 13px;
+  height: 30px;
+}
+
+#search-icon {
+  font-size: 30px;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .search-bar:hover {
