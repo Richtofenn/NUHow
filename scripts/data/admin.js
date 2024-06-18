@@ -8,7 +8,7 @@ export const accounts = [
   { 
     email: 'rapirg@students.national-u.edu.ph', password: 'russelrapi', name: 'Russel Rapi', role: 'Front-End', image:'images/russel-img.jpg'},
   { 
-    email: 'admin@admin.admin', password: 'admin12345', name: 'Admin', role: 'admin'
+    email: 'admin@admin.admin', password: 'admin12345', name: 'Admin', role: 'Admin', image:'images/profile-pic.jpg'
   }
 ];
 
