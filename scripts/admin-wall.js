@@ -26,7 +26,6 @@ function renderAdminWall() {
   document.querySelectorAll('.js-post-container').forEach((container)=>{
     container.addEventListener('click',()=>{
       const {postId} = container.dataset;
-      console.log(postId)
     })
   });
   
@@ -44,41 +43,6 @@ function renderAdminWall() {
   });
 
 
-  function renderSubmissionInWall(data){
-    console.log(data);
-    let adminWallHTML=``;
-    data.slice().reverse().forEach((post)=>{
-      adminWallHTML+=`
-      <div class="post-container js-post-container" data-post-id=${post.postId}>
-        <div class="action-container">
-            <div class="approve" data-post-id=${post.postId}>Approve</div>
-            <div class="reject" data-post-id=${post.postId}>Reject</div>
-            <div class="feature" data-post-id=${post.postId}>Feature</div>
-        </div>
-        <div class="profile-container">
-          <div class="profile-image-container">
-            <img src="${post.profilePicture || 'images/bulldog.jpeg'}" alt="Profile Picture">
-          </div>
-          <div class="details-container">
-            <p class="title">${post.title}</p>
-            <p class="name">${post.author}</p>
-            <p class="status">${formatTime(post)}</p>
-          </div>
-          <div class="topic-image-container">
-            <div>
-             <img src="${post.topic}">
-            </div>
-          </div>
-        </div>
-        <div class="message-container">
-          <p style="background-color:${post.theme}">${post.message}</p>  
-        </div>
-      </div>
-    `
-    })
-    document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
-    addEventListenerForAdminChoices();
-  }
   function renderNonSubmissionsInWall(data){
     console.log(data);
 
@@ -117,133 +81,131 @@ function renderAdminWall() {
   }
 
 }
+function renderSubmissionInWall(data) {
+  console.log(data);
+  let adminWallHTML = ``;
+  data.slice().reverse().forEach((post) => {
+    adminWallHTML += `
+      <div class="post-container js-post-container" data-post-id=${post.postId}>
+        <div class="action-container">
+          <div class="approve" data-post-id=${post.postId}>Approve</div>
+          <div class="reject" data-post-id=${post.postId}>Reject</div>
+          <div class="feature" data-post-id=${post.postId}>Feature</div>
+        </div>
+        <div class="profile-container">
+          <div class="profile-image-container">
+            <img src="${post.profilePicture || 'images/bulldog.jpeg'}" alt="Profile Picture">
+          </div>
+          <div class="details-container">
+            <p class="title">${post.title}</p>
+            <p class="name">${post.author}</p>
+            <p class="status">${formatTime(post)}</p>
+          </div>
+          <div class="topic-image-container">
+            <div>
+              <img src="${post.topic}">
+            </div>
+          </div>
+        </div>
+        <div class="message-container">
+          <p style="background-color:${post.theme}">${post.message}</p>  
+        </div>
+        <div class="approve-container" style="display: none;">
+          <div class="confirm-message">
+            <img class="confirm-image" src="images/check-mark.png">
+            <p class="thank-you">Approve post?</p>
+            <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+          </div>
+          <div class="confirm-choices-container">
+            <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+            <div class="cancel">Cancel</div>
+          </div>
+        </div>
+        <div class="reject-container" style="display: none;">
+          <div class="confirm-message">
+            <img class="confirm-image" src="images/bin.png">
+            <p class="thank-you">Reject post?</p>
+            <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+          </div>
+          <div class="confirm-choices-container">
+            <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+            <div class="cancel">Cancel</div>
+          </div>
+        </div>
+        <div class="feature-container" style="display: none;">
+          <div class="confirm-message">
+            <img class="confirm-image" src="images/star.png">
+            <p class="thank-you">Feature post?</p>
+            <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+          </div>
+          <div class="confirm-choices-container">
+            <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+            <div class="cancel">Cancel</div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
+  addEventListenerForAdminChoices();
+}
 
-function addEventListenerForAdminChoices(){
-
-  document.querySelectorAll('.approve').forEach((approveButton)=>{
-    approveButton.addEventListener('click',()=>{
-      const {postId} = approveButton.dataset;
-
-      const approveContainer= document.querySelector('.approve-container');
+function addEventListenerForAdminChoices() {
+  document.querySelectorAll('.approve').forEach((approveButton) => {
+    approveButton.addEventListener('click', () => {
+      const { postId } = approveButton.dataset;
+      const approveContainer = approveButton.closest('.post-container').querySelector('.approve-container');
       approveContainer.style = "display: flex";
 
-      document.querySelector('.approve-container .confirm').addEventListener('click',()=>{
-        const {postId} = approveButton.dataset;
+      approveContainer.querySelector('.confirm').addEventListener('click', () => {
         const submission = getSubmissionByPostId(postId);
-        console.log('postId: '+postId);
-        console.log('submission: '+submission);
-
+        console.log(submission.postId);
         
-        /*
         addPost(submission.postId, submission.author, submission.title, submission.message, submission.theme || 'rgb(99, 211, 130)', submission.topic || 'images/technology.png', submission.time, submission.profilePicture, false);
         removeSubmissionByPostId(submission.postId);
         renderAdminWall();
-        approveContainer.style="display:none";
-        */
+        
       });
 
-
-      
-      document.querySelector('.approve-container .cancel').addEventListener('click',()=>{
-        approveContainer.style="display:none";
+      approveContainer.querySelector('.cancel').addEventListener('click', () => {
+        approveContainer.style = "display: none";
       });
     });
   });
 
-  document.querySelectorAll('.reject').forEach((rejectButton)=>{
-    rejectButton.addEventListener('click',()=>{
-
-      const rejectContainer= document.querySelector('.reject-container');
+  document.querySelectorAll('.reject').forEach((rejectButton) => {
+    rejectButton.addEventListener('click', () => {
+      const { postId } = rejectButton.dataset;
+      const rejectContainer = rejectButton.closest('.post-container').querySelector('.reject-container');
       rejectContainer.style = "display: flex";
 
-      document.querySelector('.reject-container .confirm').addEventListener('click',()=>{
-        const {postId} = rejectButton.dataset;
-        const submission = getSubmissionByPostId(postId);
-        removeSubmissionByPostId(submission.postId);
+      rejectContainer.querySelector('.confirm').addEventListener('click', () => {
+        removeSubmissionByPostId(postId);
         renderAdminWall();
-        rejectContainer.style = "display: none";
       });
 
-      document.querySelector('.reject-container .cancel').addEventListener('click',()=>{
+      rejectContainer.querySelector('.cancel').addEventListener('click', () => {
         rejectContainer.style = "display: none";
       });
-
-    
-    })
+    });
   });
 
-  document.querySelectorAll('.feature').forEach((featureButton)=>{
-    featureButton.addEventListener('click',()=>{
-      
-      const featureContainer= document.querySelector('.feature-container');
+  document.querySelectorAll('.feature').forEach((featureButton) => {
+    featureButton.addEventListener('click', () => {
+      const { postId } = featureButton.dataset;
+      const featureContainer = featureButton.closest('.post-container').querySelector('.feature-container');
       featureContainer.style = "display: flex";
 
-      document.querySelector('.feature-container .confirm').addEventListener('click',()=>{
-        const {postId} = featureButton.dataset;
+      featureContainer.querySelector('.confirm').addEventListener('click', () => {
         const featured = getSubmissionByPostId(postId);
         addPost(featured.postId, featured.author, featured.title, featured.message, featured.theme || 'rgb(99, 211, 130)', featured.topic || 'images/technology.png', featured.time, featured.profilePicture, true);
         removeSubmissionByPostId(featured.postId);
         renderAdminWall();
-        featureContainer.style="display:none";
       });
 
-      document.querySelector('.feature-container .cancel').addEventListener('click',()=>{
+      featureContainer.querySelector('.cancel').addEventListener('click', () => {
         featureContainer.style = "display: none";
       });
-
-    
-    })
-  });
-  document.querySelectorAll('.delete').forEach((deleteButton)=>{
-    deleteButton.addEventListener('click',()=>{
-      console.log("delete button clicked.");
-      // prolly copy the one for reject.
-      const deleteContainer= document.querySelector('.delete-container');
-      deleteContainer.style = "display: flex";
-
-      document.querySelector('.delete-container .confirm').addEventListener('click',()=>{
-        console.log("confirm delete button clicked.");
-        const {postId} = deleteButton.dataset;
-        const wall_post = getPostById(postId);
-        deletePostByPostId(wall_post.postId);
-        // refreshWall();
-        // if (document.querySelector('.js-title-top').innerText == 'Featured'){
-        //   renderNonSubmissionsInWall(featuredPosts);
-        // } else {
-        //   renderNonSubmissionsInWall(wallPosts);
-        // }
-        deleteContainer.style="display:none";
-      });
-      
-      document.querySelector('.delete-container .cancel').addEventListener('click',()=>{
-        console.log("cancel delete button clicked.");
-        deleteContainer.style="display:none";
-      });
-
     });
-  });
-
-  document.querySelectorAll('.setFeature').forEach((setFeatureButton)=>{
-    setFeatureButton.addEventListener('click',()=>{
-      const setFeatureContainer= document.querySelector('.setFeature-container');
-      setFeatureContainer.style = "display: flex";
-
-      document.querySelector('.setFeature-container .confirm').addEventListener('click',()=>{
-        const {postId} = setFeatureButton.dataset;
-        setFeatureToPost(postId);
-        // refreshWall();
-        // if (document.querySelector('.js-title-top').innerText == 'Featured'){
-        //   renderNonSubmissionsInWall(featuredPosts);
-        // } else {
-        //   renderNonSubmissionsInWall(wallPosts);
-        // }
-        
-        setFeatureContainer.style="display:none";
-      });
-
-      document.querySelector('.setFeature-container .cancel').addEventListener('click',()=>{
-        setFeatureContainer.style = "display: none";
-      });
-    })
   });
 }
