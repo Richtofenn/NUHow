@@ -51,6 +51,7 @@ main{
   border: 1px solid black;
   z-index: 1;
   width:50%;
+  z-index: 0;
 }
 
 .dropdown {
@@ -194,16 +195,21 @@ main{
 
 .write-message-container {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   width: 570px;
-  background-color: rgb(255, 248, 232);
+  background: linear-gradient(160deg, #e6ddd0a6, #cfc1b0b3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
   z-index: 100;
   transform: translate(-50%, -50%); 
   border-radius: 15px;
   padding-right: 100px;
   flex-direction: column;
-  padding: 20px 30px;
+  border: 1px solid #0E1C36;
+  border-radius: 12px;
+  padding: 10px 20px;
   display: none;
   padding-right: 40px;
 }
@@ -267,13 +273,15 @@ input:focus {
 .author-container input,
 .title-container input{
   width: 98%;
-  background-color: transparent;
-  border-radius: 0;
+  background: transparent;
+  border-radius: 10px;
   border: solid 1.8px black;
   height: 30px;
   padding: 0;
   padding-left: 10px;
   margin-top: 3px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 /*
 .author-container textarea {
@@ -294,10 +302,13 @@ input:focus {
   width: 96%;
   height: 230px;
   background-color: transparent;
-  border-radius: 0;
+  border-radius: 10px;
   border: solid 1.8px black;
   outline: none;
   padding: 10px 10px;
+  resize: none;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 .theme-container{
   display: flex;
@@ -345,6 +356,7 @@ input:focus {
   display: flex;
   margin-top: 15px;
   align-items: center;
+  cursor: pointer;
 }
 .topic-container p {
   margin-right: 15px;
