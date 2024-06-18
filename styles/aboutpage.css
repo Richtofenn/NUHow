@@ -214,30 +214,28 @@ hr::before {
     height: 100%;
     object-fit: cover;
 }
-
 .blob {
     position: absolute;
     left: 50%;
     bottom: -44%;
-    width: 45%; 
-    height: 110%; 
+    width: 45vw; /* Adjusted to viewport width */
+    height: 90vh; /* Adjusted to viewport height */
     background-color: #faddc3;
-    border-radius: 50% 110% 60% 50% / 40% 50% 40% 60%; 
-    transform: translateX(-50%) rotate(-85deg); 
-    z-index: -100; 
-    object-fit: contain;
+    border-radius: 50% 110% 60% 50% / 40% 50% 40% 60%;
+    transform: translateX(-50%) rotate(-85deg);
+    z-index: -100;
 }
 
 .blob2 {
     position: absolute;
     left: 90%;
     bottom: -10%;
-    width: 60%; 
-    height: 60%; 
+    width: 30vw; /* Adjusted to viewport width */
+    height: 30vh; /* Adjusted to viewport height */
     background-color: #faddc3;
-    border-radius: 50% 40% 60% 50% / 90% 50% 40% 60%; 
-    transform: translateX(-50%) rotate(85deg); 
-    z-index: -100; 
+    border-radius: 50% 40% 60% 50% / 90% 50% 40% 60%;
+    transform: translateX(-50%) rotate(85deg);
+    z-index: -100;
 }
 
 .bgcolor2 {
@@ -436,5 +434,46 @@ hr::before {
         object-fit: cover;
         object-position: 0% 30%;
         height: 500px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .blob {
+        width: 55vw;
+        height: 70vh;
+    }
+    .blob2 {
+        width: 40vw;
+        height: 40vh;
+    }
+    .image_container {
+        min-width: 10vw ;
+        width: 90vw;
+        height: 60vh;
+        
+    }
+    .image_container img {
+        width:90vw ;
+        height: 60vh;
+
+        border-radius: 50px 200px;
+        user-select: none;
+        box-shadow: 0px -5px 15px 5px rgba(0, 0, 0, 0.111);
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .blob {
+
+        width: 30vw;
+        height: 30vh;
+        bottom: -50%;
+    }
+    .blob2 {
+        left: 40vw;
+        width: 50vw;
+        height: 50vh;
     }
 }
