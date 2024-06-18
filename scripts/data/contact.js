@@ -1,20 +1,33 @@
+function validateAndSendMail() {
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (name === '' || email === '' || message === '') {
+        alert('Please fill in all the required fields.');
+        return false;
+    }
+
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+
+    sendMail();
+}
+
 function sendMail() {
     var link = "mailto:NUHowSupport@email.com"
-             + "?cc=myCCaddress@example.com"
              + "&subject=" + encodeURIComponent(document.getElementById('name').value + "'s Question")
              + "&body=" + encodeURIComponent(document.getElementById('message').value);
 
-    // Create a temporary anchor element
     var a = document.createElement('a');
     a.href = link;
-    a.target = '_blank'; // Open in a new tab
+    a.target = '_blank'; 
 
-    // Append the anchor to the body
     document.body.appendChild(a);
-
-    // Programmatically click the anchor
     a.click();
-
-    // Remove the anchor from the document
     document.body.removeChild(a);
 }
