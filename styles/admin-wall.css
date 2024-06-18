@@ -206,7 +206,9 @@ main{
 
 .approve-container,
 .reject-container,
-.feature-container{
+.feature-container,
+.delete-container,
+.setFeature-container{
     text-align: center;
     letter-spacing: .8px;
     position: fixed;
@@ -229,7 +231,9 @@ main{
 }
 .approve-container .confirm-message,
 .reject-container .confirm-message,
-.feature-container .confirm-message{
+.feature-container .confirm-message,
+.delete-container .confirm-message,
+.setFeature-container .confirm-message{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -240,13 +244,17 @@ main{
 }
 .approve-container .thank-you,
 .reject-container  .thank-you,
-.feature-container  .thank-you{
+.feature-container  .thank-you,
+.delete-container .thank-you,
+.setFeature-container .thank-you{
     font-size: 1.4em;
     font-weight: 500;
 }
 .approve-container .confirm-details,
 .reject-container .confirm-details,
-.feature-container  .confirm-details{
+.feature-container  .confirm-details,
+.delete-container .confirm-details,
+.setFeature-container .confirm-details{
     font-size: .9em;
     font-weight: 300;
 }
@@ -270,10 +278,12 @@ main{
 .approve-container .confirm-choices-container .confirm{
     background-color: green;
 }
-.reject-container .confirm-choices-container .confirm{
+.reject-container .confirm-choices-container .confirm,
+.delete-container .confirm-choices-container .confirm{
     background-color: rgb(243, 66, 53);
 }
-.feature-container .confirm-choices-container .confirm{
+.feature-container .confirm-choices-container .confirm,
+.setFeature-container .confirm-choices-container .confirm{
     background-color: rgb(255, 213, 62);
 }
 .confirm-choices-container .cancel{
@@ -297,6 +307,13 @@ main{
 .feature-container{
     display: none;
 }
+.delete-container{
+    display: none;
+}
+.setFeature-container{
+    display: none;
+}
+
 
 header{
     display: none;
@@ -358,14 +375,18 @@ header{
     }
     .approve-container,
     .reject-container,
-    .feature-container {
+    .feature-container,
+    .delete-container,
+    .setFeature-container {
         margin-left: 0;
         width: 60vw;
         height: 25vh;
     }
     .approve-container,
     .reject-container,
-    .feature-container{
+    .feature-container,
+    .delete-container,
+    .setFeature-container{
         font-size: .85em;
     }
     .post-container{
