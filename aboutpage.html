@@ -22,26 +22,35 @@
 </head>
 <body>
     <header class = 'header'>
+        <img class="menu"src="images/menu.png">
+        <div class="slider">
+          <a href="wall.html">Home</a>
+          <a href="featuredpage.html">Featured</a>
+          <a href="aboutpage.html">About</a>
+          <a href="contactpage.html">Contact</a>
+          <a href="admin-wall.html">Admin Log In</a>
+        </div>
         <div class = 'header_name'>
-            <div class = 'header_title'><a href="wall.html"><span class = 'color1'>NU</span><span class = 'color2'>How</span></a></div>
+          <div class = 'header_title'><a href="wall.html"><span class = 'color1'>NU</span><span class = 'color2'>How</span></a></div>
         </div>
         <nav class = 'nav'>
-            <div class="nav_container">
-                <a href="wall.html" class="home">Home</a>
-                <a href="featuredpage.html" class="featured">Featured</a>
-                <a href="aboutpage.html" class="about">About</a>
-                <a href="contactpage.html" class="contact">Contact</a>
-            </div>            
-            <div class = 'nav_button'>
-                <a href="loginpage.html">
-                    <button class = 'nav_writeButton'>
-                        <i class="fa fa-user"></i>
-                        &nbsp;Admin Login
-                    </button>
-                </a>
-            </div>
-        </nav>
+          <div class="nav_container">
+            <a id="inboxpage-link"href="wall.html" class="home">Home</a>
+            <a id="featuredpage-link"href="featuredpage.html" class="featured">Featured</a>
+            <a id="aboutpage-link"href="aboutpage.html" class="about">About</a>
+            <a id="contactpage-link"href="contactpage.html" class="contact">Contact</a>
+          </div>
+          <div class = 'nav_button'>
+            <a href="loginpage.html">
+                <button class = 'nav_writeButton'>
+                    <i class="fa fa-user"></i>
+                    &nbsp;Admin Login
+                </button>
+            </a>
+        </div>
+      </nav>
     </header>
+    
     <main class = 'main'>
         <div class = 'about_tab'>
             <div class = 'about_container'>
@@ -291,6 +300,7 @@
        
     </footer>
     <script src="styles/frontend/textchange.js" type="module"></script>
+    <script src="styles/frontend/slider.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
