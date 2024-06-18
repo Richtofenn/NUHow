@@ -11,7 +11,10 @@ const featuredPosts = posts.filter(post => post.featured); // Posts that have fe
 renderAdminWall();
 
 function renderAdminWall() {
+
   console.log(currentAccount);
+
+  document.querySelector('header img').src = currentAccount.image;
 
   document.querySelector('.profile-container .name').innerHTML = currentAccount.name;
 
@@ -23,6 +26,7 @@ function renderAdminWall() {
   document.querySelectorAll('.js-post-container').forEach((container)=>{
     container.addEventListener('click',()=>{
       const {postId} = container.dataset;
+      console.log(postId)
     })
   });
   
@@ -41,6 +45,7 @@ function renderAdminWall() {
 
 
   function renderSubmissionInWall(data){
+    console.log(data);
     let adminWallHTML=``;
     data.slice().reverse().forEach((post)=>{
       adminWallHTML+=`
@@ -75,6 +80,8 @@ function renderAdminWall() {
     addEventListenerForAdminChoices();
   }
   function renderNonSubmissionsInWall(data){
+    console.log(data);
+
     let adminWallHTML=``;
     
     data.slice().reverse().forEach((post)=>{
@@ -115,6 +122,7 @@ function addEventListenerForAdminChoices(){
 
   document.querySelectorAll('.approve').forEach((approveButton)=>{
     approveButton.addEventListener('click',()=>{
+      const {postId} = approveButton.dataset;
 
       const approveContainer= document.querySelector('.approve-container');
       approveContainer.style = "display: flex";
@@ -122,11 +130,19 @@ function addEventListenerForAdminChoices(){
       document.querySelector('.approve-container .confirm').addEventListener('click',()=>{
         const {postId} = approveButton.dataset;
         const submission = getSubmissionByPostId(postId);
+        console.log('postId: '+postId);
+        console.log('submission: '+submission);
+
+        
+        /*
         addPost(submission.postId, submission.author, submission.title, submission.message, submission.theme || 'rgb(99, 211, 130)', submission.topic || 'images/technology.png', submission.time, submission.profilePicture, false);
         removeSubmissionByPostId(submission.postId);
         renderAdminWall();
         approveContainer.style="display:none";
+        */
       });
+
+
       
       document.querySelector('.approve-container .cancel').addEventListener('click',()=>{
         approveContainer.style="display:none";

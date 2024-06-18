@@ -1,5 +1,5 @@
 export let posts = JSON.parse(localStorage.getItem('posts')) || [{
-  postId: '1',
+  postId: '201',
   author: 'Neo',
   title: 'Ang title nito ay',
   message: 'anofwaefawefawefsawnfoaefkanwefknaskdnflkanweklfnklasdnflkanwklefnklandsklfnaklwdnfklanwdklfnawklndfkawawefkwemfkanwekfnkawfwafewaawfeawakefnkajwnefawknefknawekfnkawenfkawnfwakefmkwafnkwaefnkawnefkaweekewnwaelfawlmefwlmeflawmflemwflaemflawwaefawefawfeawes',
@@ -69,3 +69,11 @@ export function setFeatureToPost(postId){
   });
   saveToStorage();
 }
+
+let postId = JSON.parse(localStorage.getItem('postId')) || 0;
+
+export function generatePostId(){
+  postId++;
+  localStorage.setItem('postId', JSON.stringify(postId));
+  return postId;
+};
