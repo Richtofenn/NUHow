@@ -4,10 +4,12 @@ import { addPost, getPostById} from "./data/posts.js";
 //import { featurePost,featured } from "./data/featured.js";
 import { posts, setFeatureToPost, deletePostByPostId } from "./data/posts.js";
 import { currentAccount } from "./data/admin.js";
+import { adminLogged } from "./data/admin.js";
 
 let wallPosts = posts.filter(post => !post.featured); // Posts that have featured set to false
 let featuredPosts = posts.filter(post => post.featured); // Posts that have featured set to true
 
+adminLogged();
 renderAdminWall();
 
 function renderAdminWall() {
@@ -50,6 +52,7 @@ function renderAdminWall() {
     
     data.slice().reverse().forEach((post)=>{
       adminWallHTML+=`
+    <a href="comments.html?postId=${post.postId}">
       <div class="post-container js-post-container" data-post-id=${post.postId}>
         <div class="action-container">
             <div class="delete" data-post-id=${post.postId}>Delete</div>
@@ -96,6 +99,7 @@ function renderAdminWall() {
           </div>
         </div>
       </div>
+    </a>
     `
     })
     document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;

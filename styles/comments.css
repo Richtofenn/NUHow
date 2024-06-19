@@ -221,6 +221,7 @@ header {
   background-color: rgba(255, 0, 0, 0.569);
   color: white;
   overflow-wrap: break-word;
+  position: relative;
 }
 
 
@@ -330,6 +331,16 @@ header {
 
 .send-button-container img {
   width: 30px;
+  cursor: pointer;
+}
+
+.user-comment img {
+  width: 18px;
+  border-radius: 50px;
+  position: absolute;
+  left: -24px;
+  opacity: .5;
+  filter: grayscale(94%);
   cursor: pointer;
 }
 

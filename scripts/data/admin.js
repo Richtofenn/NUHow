@@ -23,4 +23,20 @@ export function logInAccount(account){
   saveToStorage();
 }
 
+function saveAdmin(){
+  localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
+};
+
+export let isAdmin = false || JSON.parse(localStorage.getItem('isAdmin')) ;
+
+export function notAdmin(){
+  isAdmin = false;
+  saveAdmin();
+}
+
+export function adminLogged(){
+  isAdmin = true;
+  saveAdmin();
+}
+
 

@@ -6,8 +6,8 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [{
   theme: 'rgb(99, 211, 130)',
   topic: 'images/technology.png',
   time: 'June 1, 2024',
-  profilePicture: null,
-  comments: [],
+  profilePicture: 'images/bulldog.jpeg',
+  comments: [1, 2],
   featured: false // By default, posts are not featured unless inputted otherwise
 }];
 
@@ -25,7 +25,7 @@ export function addPost(postId, author, title, message, theme, topic, time, prof
     topic,
     time,
     profilePicture,
-    comments: [],
+    comments: [1,2],
     featured
   });
   saveToStorage();
@@ -78,3 +78,11 @@ export function generatePostId(){
   localStorage.setItem('postId', JSON.stringify(postId));
   return postId;
 };
+
+export function deleteComment(matchingPost, commentId) {
+  const commentIndex = matchingPost.comments.indexOf(Number(commentId));
+  if (commentIndex !== -1) {
+    matchingPost.comments.splice(commentIndex, 1);
+    saveToStorage();
+  }
+}

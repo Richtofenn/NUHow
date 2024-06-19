@@ -1,6 +1,9 @@
 // import { featured } from "./data/featured.js";
 import { formatTime } from "./utils/formatTime.js";
 import { posts } from "./data/posts.js";
+import { notAdmin } from "./data/admin.js";
+
+notAdmin();
 
 const featured = posts.filter(post => post.featured); // Posts that have featured set to true
 

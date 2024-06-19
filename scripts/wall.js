@@ -4,6 +4,9 @@ import { formatTime } from "./utils/formatTime.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { addEventListenerForThemes } from "./utils/addEventListenerThemes.js";
 import { generatePostId } from "./data/posts.js";
+import { notAdmin } from "./data/admin.js";
+
+notAdmin();
 
 const wallPosts = posts.filter(post => !post.featured); // Posts that have featured set to false
 
