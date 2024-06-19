@@ -52,7 +52,7 @@ function renderAdminWall() {
     
     data.slice().reverse().forEach((post)=>{
       adminWallHTML+=`
-    <a href="comments.html?postId=${post.postId}">
+  
       <div class="post-container js-post-container" data-post-id=${post.postId}>
         <div class="action-container">
             <div class="delete" data-post-id=${post.postId}>Delete</div>
@@ -73,9 +73,9 @@ function renderAdminWall() {
             </div>
           </div>
         </div>
-        <div class="message-container">
+        <a href="comments.html?postId=${post.postId}" class="message-container">
           <p style="background-color:${post.theme}">${post.message}</p>  
-        </div>
+        </a>
         <div class="delete-container" style="display: none;">
           <div class="confirm-message">
             <img class="confirm-image" src="images/bin.png">
@@ -99,7 +99,6 @@ function renderAdminWall() {
           </div>
         </div>
       </div>
-    </a>
     `
     })
     document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
