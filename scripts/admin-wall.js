@@ -5,8 +5,8 @@ import { addPost, getPostById} from "./data/posts.js";
 import { posts, setFeatureToPost, deletePostByPostId } from "./data/posts.js";
 import { currentAccount } from "./data/admin.js";
 
-const wallPosts = posts.filter(post => !post.featured); // Posts that have featured set to false
-const featuredPosts = posts.filter(post => post.featured); // Posts that have featured set to true
+let wallPosts = posts.filter(post => !post.featured); // Posts that have featured set to false
+let featuredPosts = posts.filter(post => post.featured); // Posts that have featured set to true
 
 renderAdminWall();
 
@@ -30,7 +30,7 @@ function renderAdminWall() {
   });
   
   document.querySelector('.js-nav-wall').addEventListener('click',()=>{
-    document.querySelector('.js-title-top').innerHTML='Wall'
+    document.querySelector('.js-title-top').innerHTML='Wall';
     renderNonSubmissionsInWall(wallPosts);
   });
   document.querySelector('.js-nav-submissions').addEventListener('click',()=>{
@@ -53,7 +53,7 @@ function renderAdminWall() {
       <div class="post-container js-post-container" data-post-id=${post.postId}>
         <div class="action-container">
             <div class="delete" data-post-id=${post.postId}>Delete</div>
-            <div class="setFeature" data-post-id=${post.postId}>Feature/Unfeature</div>
+            <div class="set-feature" data-post-id=${post.postId}>Feature/Unfeature</div>
         </div>
         <div class="profile-container">
           <div class="profile-image-container">
@@ -73,12 +73,108 @@ function renderAdminWall() {
         <div class="message-container">
           <p style="background-color:${post.theme}">${post.message}</p>  
         </div>
+        <div class="delete-container" style="display: none;">
+          <div class="confirm-message">
+            <img class="confirm-image" src="images/bin.png">
+            <p class="thank-you">Delete post?</p>
+            <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+          </div>
+          <div class="confirm-choices-container">
+            <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+            <div class="cancel">Cancel</div>
+          </div>
+        </div>
+        <div class="setFeature-container" style="display: none;">
+          <div class="confirm-message">
+            <img class="confirm-image" src="images/star.png">
+            <p class="thank-you">Change the feature status of this post?</p>
+            <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+          </div>
+          <div class="confirm-choices-container">
+            <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+            <div class="cancel">Cancel</div>
+          </div>
+        </div>
       </div>
     `
     })
     document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
     addEventListenerForAdminChoices();
   }
+
+}
+
+function refreshWall(currentWall){
+  document.querySelector('.js-posts-list-container').innerHTML == "";
+  wallPosts = posts.filter(post => !post.featured);
+  featuredPosts = posts.filter(post => post.featured);
+
+  let adminWallHTML = ``;
+
+  const generatePostsHTML = (post) => `
+    <div class="post-container js-post-container" data-post-id=${post.postId}>
+      <div class="action-container">
+        <div class="delete" data-post-id=${post.postId}>Delete</div>
+        <div class="set-feature" data-post-id=${post.postId}>Feature/Unfeature</div>
+      </div>
+      <div class="profile-container">
+        <div class="profile-image-container">
+          <img src="${post.profilePicture || 'images/bulldog.jpeg'}" alt="Profile Picture">
+        </div>
+        <div class="details-container">
+          <p class="title">${post.title}</p>
+          <p class="name">${post.author}</p>
+          <p class="status">${formatTime(post)}</p>
+        </div>
+        <div class="topic-image-container">
+          <div>
+            <img src="${post.topic}">
+          </div>
+        </div>
+      </div>
+      <div class="message-container">
+        <p style="background-color:${post.theme}">${post.message}</p>  
+      </div>
+      <div class="approve-container" style="display: none;">
+        <div class="confirm-message">
+          <img class="confirm-image" src="images/check-mark.png">
+          <p class="thank-you">Approve post?</p>
+          <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+        </div>
+        <div class="confirm-choices-container">
+          <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+          <div class="cancel">Cancel</div>
+        </div>
+      </div>
+      <div class="reject-container" style="display: none;">
+        <div class="confirm-message">
+          <img class="confirm-image" src="images/bin.png">
+          <p class="thank-you">Reject post?</p>
+          <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+        </div>
+        <div class="confirm-choices-container">
+          <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+          <div class="cancel">Cancel</div>
+        </div>
+      </div>
+      <div class="feature-container" style="display: none;">
+        <div class="confirm-message">
+          <img class="confirm-image" src="images/star.png">
+          <p class="thank-you">Feature post?</p>
+          <p class="confirm-details">Once you confirm this, you cannot undo.</p>
+        </div>
+        <div class="confirm-choices-container">
+          <div class="confirm" data-post-id=${post.postId}>Confirm</div>
+          <div class="cancel">Cancel</div>
+        </div>
+      </div>
+    </div>
+  `;
+  const postsToRender = currentWall === 'Wall' ? wallPosts : featuredPosts;
+  adminWallHTML = postsToRender.slice().reverse().map(generatePostsHTML).join('');
+
+  document.querySelector('.js-posts-list-container').innerHTML = adminWallHTML;
+  addEventListenerForAdminChoices();
 
 }
 function renderSubmissionInWall(data) {
@@ -159,7 +255,6 @@ function addEventListenerForAdminChoices() {
 
       approveContainer.querySelector('.confirm').addEventListener('click', () => {
         const submission = getSubmissionByPostId(postId);
-        console.log(submission.postId);
         
         addPost(submission.postId, submission.author, submission.title, submission.message, submission.theme || 'rgb(99, 211, 130)', submission.topic || 'images/technology.png', submission.time, submission.profilePicture, false);
         removeSubmissionByPostId(submission.postId);
@@ -205,6 +300,44 @@ function addEventListenerForAdminChoices() {
 
       featureContainer.querySelector('.cancel').addEventListener('click', () => {
         featureContainer.style = "display: none";
+      });
+    });
+  });
+
+  document.querySelectorAll('.delete').forEach((deleteButton) => {
+    deleteButton.addEventListener('click', () => {
+      const { postId } = deleteButton.dataset;
+      const deleteContainer = deleteButton.closest('.post-container').querySelector('.delete-container');
+      deleteContainer.style = "display: flex";
+
+      deleteContainer.querySelector('.confirm').addEventListener('click', () => {
+        // removeSubmissionByPostId(postId);
+        deletePostByPostId(postId);
+        // renderAdminWall();
+        refreshWall(document.querySelector('.js-title-top').innerHTML);
+      });
+
+      deleteContainer.querySelector('.cancel').addEventListener('click', () => {
+        deleteContainer.style = "display: none";
+      });
+    });
+  });
+
+  document.querySelectorAll('.set-feature').forEach((setFeatureButton) => {
+    setFeatureButton.addEventListener('click', () => {
+      const { postId } = setFeatureButton.dataset;
+      const setFeatureContainer = setFeatureButton.closest('.post-container').querySelector('.setFeature-container');
+      setFeatureContainer.style = "display: flex";
+
+      setFeatureContainer.querySelector('.confirm').addEventListener('click', () => {
+        // removeSubmissionByPostId(postId);
+        setFeatureToPost(postId);
+        // renderAdminWall();
+        refreshWall(document.querySelector('.js-title-top').innerHTML);
+      });
+
+      setFeatureContainer.querySelector('.cancel').addEventListener('click', () => {
+        setFeatureContainer.style = "display: none";
       });
     });
   });
