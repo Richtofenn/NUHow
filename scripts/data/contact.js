@@ -19,15 +19,17 @@ function validateAndSendMail() {
 }
 
 function sendMail() {
-    var link = "mailto:NUHowSupport@email.com"
-             + "&subject=" + encodeURIComponent(document.getElementById('name').value + "'s Question")
-             + "&body=" + encodeURIComponent(document.getElementById('message').value);
-
-    var a = document.createElement('a');
-    a.href = link;
-    a.target = '_blank'; 
-
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+        var link = "mailto:NUHowContact@example.com"
+                 + "?cc=AdminNUHow@CCexample.com"
+                 + "&subject=" + encodeURIComponent(document.getElementById('name').value + "'s Question")
+                 + "&body=" + encodeURIComponent(document.getElementById('message').value);
+    
+        var a = document.createElement('a');
+        a.href = link;
+        a.target = '_blank';
+    
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    
 }
