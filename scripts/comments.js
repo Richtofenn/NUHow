@@ -2,11 +2,17 @@ import {getPostById, addCommentToPost} from "./data/posts.js";
 import { formatTime } from "./utils/formatTime.js";
 import { comments, newComment } from "./data/comments.js";
 import { addEventListenerForThemes } from "./utils/addEventListenerThemes.js";
+import { featured } from "./data/featured.js";
+import { posts } from "./data/posts.js";
+
+console.log(posts);
 const url = new URL(window.location.href);
 const postId = url.searchParams.get('postId');
+console.log(postId);
+
 
 const matchingPost = getPostById(postId);
-
+console.log(matchingPost)
 renderCommentPage();
 function renderCommentPage(){
 
