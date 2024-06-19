@@ -10,6 +10,10 @@
   margin-bottom: 150px;
   align-items: center;
 }
+.posts-list-container a{
+  display: flex;
+  justify-content: center;
+}
 .post-container{
   display: flex;
   flex-direction: column;
