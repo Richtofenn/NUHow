@@ -1,8 +1,8 @@
 export let posts = JSON.parse(localStorage.getItem('posts')) || [{
   postId: '201',
   author: 'Neo',
-  title: 'Ang title nito ay',
-  message: 'anofwaefawefawefsawnfoaefkanwefknaskdnflkanweklfnklasdnflkanwklefnklandsklfnaklwdnfklanwdklfnawklndfkawawefkwemfkanwekfnkawfwafewaawfeawakefnkajwnefawknefknawekfnkawenfkawnfwakefmkwafnkwaefnkawnefkaweekewnwaelfawlmefwlmeflawmflemwflaemflawwaefawefawfeawes',
+  title: 'Registrar',
+  message: 'Gaano po katagal i-process ang COR',
   theme: 'rgb(99, 211, 130)',
   topic: 'images/technology.png',
   time: 'June 1, 2024',
