@@ -4,17 +4,31 @@ a{
     text-decoration: none;
 }
 body {
-    background: url(/NUHow/images/login_img.jpg) no-repeat;
+    background: url(../images/login_img.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     width: 1000px;
     height: 100vh;
     overflow: hidden;
     font-family: "Inter";
+    background-color: red;
+    position: relative;
+}
+.background-image{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    opacity: .85;
+    z-index: -1000000;
+    background-image: linear-gradient(to bottom, #faddc37b, #8080c063);
+
+
 }
 
 .bgcolor {
     background-image: linear-gradient(to bottom, #faddc37b, #8080c063);
+    z-index: 10000;
     background-position: center;
     background-size: cover;
     width: 100%;

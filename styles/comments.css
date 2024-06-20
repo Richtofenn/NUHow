@@ -73,6 +73,7 @@ header {
   border-radius: 5px;
 }
 
+
 .home:hover,
 .featured:hover,
 .about:hover,
@@ -170,6 +171,7 @@ header {
   background-color: white;
   padding: 25px 15px;
   font-weight: 400;
+  min-height: 170px;
   color: white;
   line-height: 18px;
   margin-top: 13px;
@@ -201,6 +203,7 @@ header {
 .comments-container {
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .single-comment-container {
