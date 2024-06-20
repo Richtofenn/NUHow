@@ -19,8 +19,8 @@ function validateAndSendMail() {
 }
 
 function sendMail() {
-        var link = "mailto:NUHowContact@example.com"
-                 + "?cc=AdminNUHow@CCexample.com"
+        var link = "mailto:nuhow.devteam@gmail.com"
+                 + "?cc=" + encodeURIComponent(document.getElementById('email').value)
                  + "&subject=" + encodeURIComponent(document.getElementById('name').value + "'s Question")
                  + "&body=" + encodeURIComponent(document.getElementById('message').value);
     
