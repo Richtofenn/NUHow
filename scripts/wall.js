@@ -229,7 +229,7 @@ function validatePost(author, title, message) {
   if (!message){
     displayMessageEmpty();
     hasError = true;
-  } else if (message.length > 2000){
+  } else if (message.length > 300){
     displayMessageMax();
     hasError = true;
   }
